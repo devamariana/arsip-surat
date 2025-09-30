@@ -1,61 +1,78 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Sistem Pengarsipan Surat Resmi Kelurahan Karangduren
+## Gambaran Umum
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplikasi ini dibuat untuk mempermudah perangkat kelurahan dalam menyimpan dan mengelola dokumen surat resmi secara digital.
+Setiap surat yang telah diterbitkan dapat di-scan ke format PDF kemudian diunggah ke sistem. Saat dokumen tersebut diperlukan kembali, petugas cukup mengetik judul atau kata kunci, lalu mengunduh berkas yang sudah tersimpan dengan aman.
 
-## About Laravel
+## Manfaat
+- Membantu perangkat desa dalam digitalisasi arsip surat resmi.
+- Mempercepat proses pencarian dokumen hanya dengan judul/kata kunci.
+- Menyediakan unggah file PDF hasil scan surat.
+- Memastikan arsip surat dapat diakses kembali kapan saja.
+- Mengurangi risiko hilangnya dokumen penting sekaligus meningkatkan efisiensi kerja.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Fitur Utama
+- Unggah Surat (PDF): menyimpan arsip surat hasil scan ke sistem.
+- Fitur Pencarian: temukan surat dengan cepat berdasarkan judul atau kata kunci.
+- Unduh Arsip: surat yang tersimpan bisa di-download kembali.
+- Daftar Arsip: menampilkan seluruh dokumen surat yang sudah masuk sistem.
+- Manajemen Pengguna (opsional): pengaturan peran untuk admin maupun staf kelurahan.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Kebutuhan Sistem
+- PHP versi 8.0 atau lebih tinggi
+- Database MySQL/MariaDB
+- Web server (XAMPP, Laragon, atau PHP built-in server)
+- Composer (jika berbasis Laravel)
+- Node.js & npm (jika menggunakan Laravel Mix/Vite untuk manajemen aset)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Cara Instalasi
+1. Clone repository:
+   ```bash
+   git clone https://github.com/username/arsip-surat.git
+   cd arsip-surat
+   ```
 
-## Learning Laravel
+2. Install dependencies (jika menggunakan Laravel):
+   ```bash
+   composer install
+   npm install && npm run dev
+   ```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+3. Salin file `.env.example` menjadi `.env`, lalu sesuaikan konfigurasi database:
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+4. Buat database baru di MySQL (contoh: `db_arsipsurat`).
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+5. Import file `db_arsipsurat.sql`:
+   - Via terminal:
+     ```bash
+     mysql -u root -p db_arsipsurat < db_arsipsurat.sql
+     ```
+   - Via phpMyAdmin: pilih database → Import → pilih file `database.sql`.
 
-## Laravel Sponsors
+6. Jalankan aplikasi:
+   - Jika Laravel:
+     ```bash
+     php artisan serve
+     ```
+     Akses melalui browser: [http://127.0.0.1:8000](http://127.0.0.1:8000)  
+   - Jika tanpa framework: letakkan folder project di `htdocs/` (XAMPP) lalu buka [http://localhost/nama-folder](http://localhost/nama-folder).
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+# Screenshoot Tampilan 
+Tampilan Arsip Surat
+<img width="1365" height="647" alt="Screenshot 2025-09-30 151845" src="https://github.com/user-attachments/assets/9ccd8ef0-03b9-44c7-8807-83e0a842fbcb" />
+Tampilan Kategori Surat
+<img width="1365" height="651" alt="Screenshot 2025-09-30 151902" src="https://github.com/user-attachments/assets/736d2145-9f6d-4eab-ab38-f914fa7c49d9" />
+Tampilan About
+<img width="1365" height="646" alt="Screenshot 2025-09-30 151918" src="https://github.com/user-attachments/assets/2a465495-9824-4f1c-9469-4df4597f6319" />
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+.
